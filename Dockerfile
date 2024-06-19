@@ -19,6 +19,8 @@ ARG IMAGE_VERSION
 RUN apt-get -qq update --fix-missing && apt-get -qq --yes upgrade
 
 RUN apt-get install wget -y
+RUN apt-get install -y gcc g++
+
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0.tar.gz && \
     tar -xzvf cmake-3.20.0.tar.gz && \
     cd cmake-3.20.0/ && \
