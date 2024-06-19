@@ -40,5 +40,5 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker tag $TAG kartoza/postgis 447900098106.dkr.ecr.$AWS_REGION.amazonaws.com/postgis:$POSTGRES_MAJOR_VERSION-$POSTGIS_MAJOR
+      - docker tag kartoza/postgis:$POSTGRES_MAJOR_VERSION-$POSTGIS_MAJOR 447900098106.dkr.ecr.$AWS_REGION.amazonaws.com/postgis:$POSTGRES_MAJOR_VERSION-$POSTGIS_MAJOR
       - docker push 447900098106.dkr.ecr.$AWS_REGION.amazonaws.com/postgis:$POSTGRES_MAJOR_VERSION-$POSTGIS_MAJOR
