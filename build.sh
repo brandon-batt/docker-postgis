@@ -8,15 +8,15 @@ source .env
 
 if [[ ${BUILD_TIMESCALE} =~ [Ff][Aa][Ll][Ss][Ee] ]];then
   if [[ $(dpkg -l | grep "docker-compose") > /dev/null ]];then
-    docker-compose -f docker-compose.build.yml build postgis-prod
+    docker-compose -f docker-compose.build.yml build postgis-prod -t $TAG
   else
-    docker compose -f docker-compose.build.yml build postgis-prod
+    docker compose -f docker-compose.build.yml build postgis-prod -t $TAG
   fi
 
 else
   if [[ $(dpkg -l | grep "docker-compose") > /dev/null ]];then
-  docker-compose -f docker-compose.build-timescale.yml build postgis-prod
+  docker-compose -f docker-compose.build-timescale.yml build postgis-prod -t $TAG
   else
-  docker compose -f docker-compose.build-timescale.yml build postgis-prod
+  docker compose -f docker-compose.build-timescale.yml build postgis-prod -t $TAG
   fi
 fi

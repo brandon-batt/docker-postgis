@@ -30,6 +30,7 @@ phases:
         POSTGRES_MAJOR_VERSION=13
         POSTGIS_MAJOR_VERSION=3
         POSTGIS_MINOR_RELEASE=4
+        TAG=447900098106.dkr.ecr.$AWS_REGION.amazonaws.com/postgis:$POSTGRES_MAJOR_VERSION-$POSTGIS_MAJOR
         BUILD_TIMESCALE=false
         TIMESCALE_VERSION=2-2.14.2' > .env
   build:
@@ -40,4 +41,4 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 447900098106.dkr.ecr.$AWS_REGION.amazonaws.com/postgis:latest
-      - docker push 447900098106.dkr.ecr.$AWS_REGION.amazonaws.com/postgis:$POSTGRES_MAJOR_VERSION-$POSTGIS_MAJORbuildspec.
+      - docker push 447900098106.dkr.ecr.$AWS_REGION.amazonaws.com/postgis:$POSTGRES_MAJOR_VERSION-$POSTGIS_MAJOR
