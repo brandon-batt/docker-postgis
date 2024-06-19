@@ -14,6 +14,7 @@ phases:
       docker: 23
   pre_build:
     commands:
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 447900098106.dkr.ecr.$AWS_REGION.amazonaws.com
       - |
         echo '## Example environment file for docker-compose and builders
         COMPOSE_PROJECT_NAME=postgis
