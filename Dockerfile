@@ -18,12 +18,19 @@ ARG IMAGE_VERSION
 
 RUN apt-get -qq update --fix-missing && apt-get -qq --yes upgrade
 
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.20.0/cmake-3.20.0.tar.gz && \
+    tar -xzvf cmake-3.20.0.tar.gz && \
+    cd cmake-3.20.0/ && \
+    ./bootstrap && \
+    make && \
+    make install
+
 RUN set -eux \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
     && apt-get -y --no-install-recommends install \
         locales gnupg2 wget ca-certificates rpl pwgen software-properties-common  iputils-ping \
-        apt-transport-https curl gettext pgxnclient cmake && \
+        apt-transport-https curl gettext pgxnclient && \
     apt-get -y install build-essential autoconf  libxml2-dev zlib1g-dev netcat-openbsd gdal-bin \
     figlet toilet gosu; \
     # verify that the binary works
